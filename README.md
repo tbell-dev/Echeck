@@ -100,7 +100,7 @@ LIBSO=1
 make -j$(nproc)
 ```
 
-libdarknet.so 파일이 생성된것을 확인하고 Darknet이 설치된 경로를 환경변수로 입력해준다.
+libdarknet.so 파일이 생성된것을 확인하고 darknet 디렉토리 경로를 환경변수로 저장한다.
 
 ```bash
 ls ./libdarknet.so

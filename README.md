@@ -60,7 +60,9 @@ Echeck
 
 ```bash
 cd echeck
+```
 
+```bash
 pip install -r requirements.txt
 ```
 
@@ -69,10 +71,10 @@ pip install -r requirements.txt
 ### libdarknet.so
 [darknet.py](http://darknet.py) 스크립트를 실행하기 위해선 darknet 레포지토리로부터 소스코드를 내려받아 [libdarknet.so](http://libdarknet.so) 파일을 생성해야한다.
 
-다음과 같이 [Darknet](https://github.com/AlexeyAB/darknet.git)으로부터 소스코드를 darknet 디렉토리로 내려받는다.
+다음과 같이 [Darknet](https://github.com/AlexeyAB/darknet.git) 으로부터 소스코드 clone하여 darknet 디렉토리로 내려받는다.
 
 ```bash
-git clone https://github.com/AlexeyAB/darknet.git darknet
+git clone https://github.com/AlexeyAB/darknet.git -P darknet
 cd darknet
 ```
 
@@ -121,7 +123,7 @@ export DARKNET_PATH=${PWD}
 
 기계식 전력량계 숫자 탐지(TF-Serving)을 다운로드 받고 압축을 해제한 다음 Docker의 Tensorflow-Serving 이미지를 내려받아 API를 실행시켜준다.
 
-**meter-yolov4-608.zip: **
+**meter-yolov4-608.zip :**
 
 - `url` : [http://gofile.me/5RYLE/5GYbfW58a](http://gofile.me/5RYLE/5GYbfW58a)
 - `save to` : model/meter-yolov4
@@ -145,7 +147,7 @@ docker run --name meter-608 -d -p 8501:8501 \
 
 ## 실행
 
-80 포트로 서비스하기 때문에 **OS가 리눅스인 경우** **sudo** **를 붙여서 관리자 원한으로 실행**해야한다.
+80 포트로 서비스하기 때문에 **OS가 리눅스인 경우 sudo** 를 붙여서 관리자 권한으로 실행해야한다.
 
 ```bash
 # if not root

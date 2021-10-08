@@ -21,7 +21,7 @@ git clone https://github.com/tbell-dev/Echeck.git
 
 ## 프로젝트 구조
 
-Tree structure : 
+Tree view : 
 
 ```
 Echeck

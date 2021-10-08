@@ -13,7 +13,7 @@ CUDNN==11.2
 tensorflow==2.5.0
 ```
 
-소스코드를 내려받는다.
+다음과 같이 소스코드를 내려받는다.
 
 ```bash
 git clone https://github.com/tbell-dev/Echeck.git

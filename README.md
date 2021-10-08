@@ -6,6 +6,7 @@
 
 ```bash
 # os : ubuntu 18.04
+# GPU : RTX-3090 x 1
 Python==3.7.10
 CUDA==11.2
 CUDNN==11.2
@@ -14,11 +15,13 @@ tensorflow==2.5.0
 
 소스코드를 내려받는다.
 
-```
+```bash
 git clone https://github.com/tbell-dev/Echeck.git
 ```
 
 ## 코드 구조
+
+Tree structure : 
 
 ```
 Echeck
@@ -42,19 +45,19 @@ Echeck
     └── emeter-yolov4-608.names
 ```
 
-- `[api.py](http://api.py)` : Flask API를 실행하기 위한 main 함수들 코드
+- `api.py` : Flask API를 실행하기 위한 main 함수들 코드
 - `config.ini` : 모델 설정 파일 정보와 TF-Serving 주소, 수신 이미지 저장 경로 등 서버 설정 정보들을 담고 있다.
-    - **Detector :** 숫자 탐지 모델의 설정파일 경로, weight 파일 경로를 지정해준다.
-    - **Classifier :** 숫자 분류 모델의 가중치 데이터 경로, threshold를 설정해준다.
-    - **TF-Serving :** tf-serving 모델의 저장 경로를 지정해준다.
-    - **API_Save :** API로 수신하는 이미지를 저장할 경로를 지정해준다.
-    - **Flask** : Flask API 서버의 호스트, 포트 명을 지정해준다.
-- `darknet` : [libdarknet.so](http://libdarknet.so) 파일을 저장할 디렉토리이다.
-- `[darknet.py](http://darknet.py)` : darknet weight 파일을 읽고 처리하는 파이썬 스크립트이다.
-- `model` : 숫자 탐지(num_detector), 인식(num_classifier) 모델을 저장할 디렉토리이다.
-- `requirements.txt` : 필요 python 라이브러리를 담은 경로이다.
-- `[tfServing.py](http://tfServing.py)` : TF-Serving을 처리하는 모듈이다.
-- `yolo-cfg` : 숫자 탐지 모델의 설정파일을 담은 경로이다.
+    - Detector : 숫자 탐지 모델의 설정파일 경로, weight 파일 경로를 지정해준다.
+    - Classifier : 숫자 분류 모델의 가중치 데이터 경로, threshold를 설정해준다.
+    - TF-Serving : tf-serving 모델의 저장 경로를 지정해준다.
+    - API_Save : API로 수신하는 이미지를 저장할 경로를 지정해준다.
+    - Flask : Flask API 서버의 호스트, 포트 명을 지정해준다.
+- `darknet` : libdarknet.so 파일을 저장할 디렉토리이다.
+- `darknet.py` : darknet weight 파일을 읽고 처리하는 파이썬 스크립트이다.
+- `model` : 숫자 탐지(num_detector), 인식(num_classifier) 모델을 저장하는 디렉토리이다.
+- `requirements.txt` : 필요 python 라이브러리 정보이다.
+- `tfServing.py` : TF-Serving을 처리하는 모듈이다.
+- `yolo-cfg` : 숫자 탐지 모델의 설정파일들이다.
 
 프로젝트 루트 디렉토리로 이동 후 `pip` 명령을 사용하여 필요한 파이썬 스크립트를 내려받는다.
 
@@ -69,9 +72,9 @@ pip install -r requirements.txt
 ## 빌드
 
 ### libdarknet.so
-[darknet.py](http://darknet.py) 스크립트를 실행하기 위해선 darknet 레포지토리로부터 소스코드를 내려받아 [libdarknet.so](http://libdarknet.so) 파일을 생성해야한다.
+darknet.py 스크립트를 실행하기 위해선 darknet 레포지토리로부터 소스코드를 내려받아 libdarknet.so 파일을 make로 빌드하여 만들어야 한다.
 
-다음과 같이 [Darknet](https://github.com/AlexeyAB/darknet.git) 으로부터 소스코드 clone하여 darknet 디렉토리로 내려받는다.
+다음과 같이 [Darknet](https://github.com/AlexeyAB/darknet.git) 으로부터 소스코드 clone 하여 darknet 디렉토리로 내려받는다.
 
 ```bash
 git clone https://github.com/AlexeyAB/darknet.git -P darknet

@@ -1,0 +1,5 @@
+classes = 1
+train = /workspace/train.txt
+valid = /workspace/valid.txt
+names = /home/khkim/workspace/AIMAKER/Echeck/models/seg_detector/emeter-yolov4-416-aug/emeter-yolov4-416-aug.names
+backup = /workspace/backup

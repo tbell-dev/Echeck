@@ -66,6 +66,7 @@ pip install -r requirements.txt
 
 ## 빌드
 
+### libdarknet.so
 [darknet.py](http://darknet.py) 스크립트를 실행하기 위해선 darknet 레포지토리로부터 소스코드를 내려받아 [libdarknet.so](http://libdarknet.so) 파일을 생성해야한다.
 
 다음과 같이 [Darknet](https://github.com/AlexeyAB/darknet.git)으로부터 소스코드를 darknet 디렉토리로 내려받는다.
@@ -75,6 +76,7 @@ git clone https://github.com/AlexeyAB/darknet.git darknet
 cd darknet
 ```
 
+### darknet 설정
 darknet 디렉토리로 이동한 후 `Makefile` 의 상단 내용을 아래와 같이 수정해준다.
 
 ```bash
@@ -86,14 +88,14 @@ LIBSO=1
 ...
 ```
 
-`make` 명령을 통해 [libdarknet.so](http://libdarknet.so) 파일을 생성해준다.
+`make` 명령을 통해 libdarknet.so 파일을 생성해준다.
 
 ```bash
 # in 'darknet' directory
 make -j$(nproc)
 ```
 
-[libdarknet.so](http://libdarknet.so) 파일이 생성된것을 확인하고 Darknet이 설치된 경로를 환경변수로 입력해준다.
+libdarknet.so 파일이 생성된것을 확인하고 Darknet이 설치된 경로를 환경변수로 입력해준다.
 
 ```bash
 ls ./libdarknet.so
@@ -101,23 +103,25 @@ ls ./libdarknet.so
 export DARKNET_PATH=${PWD}
 ```
 
+## 모델 다운로드
+
 소스코드의 root 경로로 이동하고 다음과 같이 모델들을 내려받는다.
 
 전자식 숫자 객체 탐지(.weight), 설정 파일과 숫자 분류기 모델(.h5)를 `model` 경로로 내려받는다.
 
-**emeter-yolov4-416.weight**
+**emeter-yolov4-416.weight :**
 
 - `url` : [http://gofile.me/5RYLE/VqHeQUVYn](http://gofile.me/5RYLE/VqHeQUVYn)
 - `save to` : model/num_detector
 
-**LeNet-100.h5** 
+**LeNet-100.h5 :** 
 
 - `url` : [http://gofile.me/5RYLE/9163idFmh](http://gofile.me/5RYLE/9163idFmh)
 - `save to` : model/num_classifier
 
 기계식 전력량계 숫자 탐지(TF-Serving)을 다운로드 받고 압축을 해제한 다음 Docker의 Tensorflow-Serving 이미지를 내려받아 API를 실행시켜준다.
 
-**meter-yolov4-608.zip**
+**meter-yolov4-608.zip: **
 
 - `url` : [http://gofile.me/5RYLE/5GYbfW58a](http://gofile.me/5RYLE/5GYbfW58a)
 - `save to` : model/meter-yolov4

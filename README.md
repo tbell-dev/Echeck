@@ -19,7 +19,7 @@ tensorflow==2.5.0
 git clone https://github.com/tbell-dev/Echeck.git
 ```
 
-## 코드 구조
+## 프로젝트 구조
 
 Tree structure : 
 

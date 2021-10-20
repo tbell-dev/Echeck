@@ -7,7 +7,7 @@
 ```bash
 # os : ubuntu 18.04
 # GPU : RTX-3090 x 1
-Python==3.7.10
+Python==3.7.5
 CUDA==11.2
 CUDNN==11.2
 tensorflow==2.5.0

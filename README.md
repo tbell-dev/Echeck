@@ -150,9 +150,28 @@ docker run --name meter-608 -d -p 8501:8501 \
 
 ## 실행
 
-80 포트로 서비스하기 때문에 **OS가 리눅스인 경우 sudo** 를 붙여서 관리자 권한으로 실행해야한다.
+아래 처럼 명령어를 실행하면 서버가 구동된다.
 
 ```bash
 # if not root
-sudo python api.py
+python api.py
+```
+백그라운드로 서버를 구동시킬려면 다음처럼 실행한다.
+
+```bash
+nohup python api.py 2>/dev/null &
+```
+
+## 2021-10-20 개발현황
+
+`gpu-1` 서버에 `khkim` 계정의 `/home/khkim/Echeck`에 소스코드 및 설치가 완료됨. 
+
+아래대로 SSH로 서버에 접속하여 명령어를 따라 실행하면 서버를 구동시킬 수 있음
+
+```bash
+ssh khkim@172.30.1.21
+# pw : khkim
+
+cd /home/khkim/Echeck
+bash run.sh
 ```
